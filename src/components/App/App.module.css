@@ -1,0 +1,23 @@
+.app {
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100%;
+    /*color: #ffffff;*/
+    background-color: burlywood;
+}
+
+.main {
+    margin: 0 auto;
+    padding: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start;
+}
+
+* {
+    outline: green 1px solid;
+}

@@ -1,0 +1,56 @@
+.line {
+    background-color: green;
+}
+
+.none {
+    background-color: burlywood;
+    width: 100%;
+}
+
+.none:hover{
+    background-color: bisque;
+}
+
+.none:focus{
+    background-color: bisque;
+}
+
+.button {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.checkTd {
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    background-color: rgba(217, 221, 146, 0.2);
+}
+
+.td {
+    border: 1px solid #eeeeee;
+    text-align: left;
+    font-size: 18px;
+    padding: 12px;
+    background-color: rgba(217, 221, 146, 0.2);
+}
+
+.inputCheckBox {
+
+}
+
+.inputText {
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    width: 91%;
+    padding: 12px 12px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.inputText:focus {
+    outline: 1px solid #ccc;
+    border: 1px solid #ccc;
+    background-color: #fffaf3;
+}

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from './Staff.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import Table from "../Table/Table";
@@ -9,11 +8,8 @@ function Staff() {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.companiesSlice.staff);
   const mark = useSelector((state) => state.companiesSlice.mark);
-  // const oneCompanyStaff = useSelector((state) => state.companiesSlice.companyStaff);
 
   const companyFromMark = mark.length < 2 && mark.length !== 0 && data.find((el) => el.companyId === mark[0].id);
-
-  const [staffData, setStaffData] = useState('dataStaff');
 
   const onChangeInputStaff = (e, Id) => {
     const { name, value } = e.target

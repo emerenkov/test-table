@@ -46,7 +46,15 @@ function Table({ children, type }) {
       <thead className={styles.thead}>
       <tr>
         <th>
-          <input type="checkbox" id="horns" onChange={()=>{}} checked={type.includes('staff') ? flagStaff : flagCompanies} name="horns" onClick={() => allLineMark()}/>
+          <input
+            type="checkbox"
+            id="horns"
+            onChange={()=>{}}
+            checked={type.includes('staff')
+              ? flagStaff
+              : flagCompanies}
+            name="horns"
+            onClick={() => allLineMark()}/>
         </th>
         <th>
           <label htmlFor="horns">Выделить все</label>

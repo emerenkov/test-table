@@ -8,6 +8,10 @@ function LineTable({ el, onChangeInput, type }) {
   const staff = useSelector((state) => state.companiesSlice.staff);
   const dispatch = useDispatch();
 
+  const checkedMarkCompany = mark.some((item) => el.id === item.id);
+  const checkedMarkStaff = markStaff.some((item) => el.id === item.id);
+  const staffForSum = el.id ? staff.find((item) => item.companyId === el.id) : null;
+
   const markLineCompany = (e) => {
     dispatch(addMarkCompany(e.target.id));
   }
@@ -15,9 +19,6 @@ function LineTable({ el, onChangeInput, type }) {
   const markLineStaff = (e) => {
     dispatch(addMarkStaff(e.target.id))
   }
-  const checkedMarkCompany = mark.some((item) => el.id === item.id);
-  const checkedMarkStaff = markStaff.some((item) => el.id === item.id);
-  const staffForSum = el.id ? staff.find((item) => item.companyId === el.id) : null;
 
   return (
     <>

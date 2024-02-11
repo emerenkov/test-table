@@ -1,15 +1,44 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import { dataCompanies } from '../../data/dataCompanies';
 import { dataStaff } from "../../data/dataStaff";
 import { v4 as uuidv4 } from 'uuid';
-import companies from "../../components/Companies/Companies";
 
-const initialState = {
+export type TStaff = {
+  name: string;
+  surname: string;
+  position: string;
+  id: string;
+}
+
+export type TDataCompanies = {
+  name: string;
+  address: string;
+  id: string;
+}
+
+type TId = {
+  id: string;
+}
+
+export type TDataStaff = {
+  companyId: string;
+  staff: TStaff[];
+}
+
+interface IInitialState {
+  companies: TDataCompanies[];
+  mark: TId[];
+  markStaff: TId[];
+  staff: TDataStaff[];
+  flagCompanies: boolean;
+  flagStaff: boolean;
+}
+
+const initialState: IInitialState = {
   companies: dataCompanies,
   mark: [],
   markStaff: [],
   staff: dataStaff,
-  companyStaff: [],
   flagCompanies: false,
   flagStaff: false,
 }
@@ -18,13 +47,13 @@ export const companiesSlice = createSlice({
   name: 'companies',
   initialState,
   reducers: {
-    editCompany(state, action) {         // DONE!!!
-      const {name, value, compId} = action.payload;
+    editCompany(state, action) {
+      const {name, value,id} = action.payload;
       state.companies = state.companies.map((item) =>
-        item.id === compId && name ? { ...item, [name]: value } : item
+        item.id === id && name ? { ...item, [name]: value } : item
       );
     },
-    editStaff(state, action) {          // DONE!!!
+    editStaff(state, action) {
       const {name, value, Id, companyId} = action.payload;
       state.staff = state.staff
         .map((element) => element.companyId === companyId ? {...element, staff: element.staff
@@ -76,7 +105,7 @@ export const companiesSlice = createSlice({
       })
     },
 
-    addMarkCompany(state, action) {
+    addMarkCompany(state, action: PayloadAction<string>) {
       const findItemCompany = state.mark.find((obj) => obj.id === action.payload)
       if (!findItemCompany) {
         state.mark.push({ id: action.payload })
@@ -122,6 +151,17 @@ export const companiesSlice = createSlice({
   },
 })
 
-export const { editCompany, editStaff, addMarkCompany, addMarkStaff, addMarkAllCompanies, addMarkAllStaff, deleteCompany, deleteStaff, addCompany, addStaff } = companiesSlice.actions
+export const {
+  editCompany,
+  editStaff,
+  addMarkCompany,
+  addMarkStaff,
+  addMarkAllCompanies,
+  addMarkAllStaff,
+  deleteCompany,
+  deleteStaff,
+  addCompany,
+  addStaff
+} = companiesSlice.actions
 
 export default companiesSlice.reducer

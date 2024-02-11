@@ -1,5 +1,7 @@
 .line {
-    background-color: green;
+    background-color: #fffaf3;
+    border: 1px solid #000000;
+    box-sizing: border-box;
 }
 
 .none {
@@ -22,14 +24,10 @@
 }
 
 .checkTd {
-    /*display: flex;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
     background-color: rgba(217, 221, 146, 0.2);
 }
 
 .td {
-    border: 1px solid #eeeeee;
     text-align: left;
     font-size: 18px;
     padding: 12px;
@@ -37,7 +35,12 @@
 }
 
 .inputCheckBox {
+    width: 20px;
+    height: 20px;
+}
 
+.tdName {
+    width: 12vw;
 }
 
 .inputText {
@@ -50,7 +53,10 @@
 }
 
 .inputText:focus {
-    outline: 1px solid #ccc;
-    border: 1px solid #ccc;
     background-color: #fffaf3;
+    box-sizing: border-box;
+}
+
+.inputText:disabled {
+    color: #000000;
 }

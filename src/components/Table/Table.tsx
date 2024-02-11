@@ -1,5 +1,6 @@
+import React from 'react'
 import styles from "./Table.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import {useAppSelector, useAppDispatch} from "../../redux/store";
 import {
   addCompany,
   addMarkAllCompanies,
@@ -9,10 +10,16 @@ import {
   deleteStaff
 } from "../../redux/slices/companiesSlice";
 
-function Table({ children, type }) {
-  const flagCompanies = useSelector((state) => state.companiesSlice.flagCompanies);
-  const flagStaff = useSelector((state) => state.companiesSlice.flagStaff);
-  const dispatch = useDispatch();
+type TTable = {
+  type: 'companies' | 'staff';
+  children: React.JSX.Element | React.JSX.Element[];
+}
+
+const Table: React.FC<TTable> = ({ children, type }) => {
+  const dispatch = useAppDispatch();
+
+  const flagCompanies = useAppSelector((state) => state.companiesSlice.flagCompanies);
+  const flagStaff = useAppSelector((state) => state.companiesSlice.flagStaff);
 
   const addLine = () => {
     if(type.includes('companies')) {
@@ -47,6 +54,7 @@ function Table({ children, type }) {
       <tr>
         <th>
           <input
+            className={styles.inputCheckBox}
             type="checkbox"
             id="horns"
             onChange={()=>{}}
@@ -60,10 +68,10 @@ function Table({ children, type }) {
           <label htmlFor="horns">Выделить все</label>
         </th>
         <th>
-          <button onClick={addLine}>add</button>
+          <button onClick={addLine}>Добавить</button>
         </th>
         <th>
-          <button onClick={deleteLine}>delete</button>
+          <button onClick={deleteLine}>Удалить</button>
         </th>
       </tr>
       </thead>

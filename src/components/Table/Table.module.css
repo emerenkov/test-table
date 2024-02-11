@@ -1,36 +1,16 @@
 .table {
     margin: 0 auto;
-    /*table-layout: fixed;*/
     border-collapse: collapse;
     width: 48vw;
 }
 .thead {
-    /*display: block;*/
     background: black;
     color: #fff;
+    height: 40px;
+    box-sizing: content-box;
 }
 
-
-/**
-.fixed_header {
-      }
-      .fixed_header tbody {
-        display: block;
-        width: 100%;
-        overflow: auto;
-        height: 100px;
-      }
-      .fixed_header thead tr {
-        display: block;
-      }
-      .fixed_header thead {
-        background: black;
-        color: #fff;
-      }
-      .fixed_header th,
-      .fixed_header td {
-        padding: 5px;
-        text-align: left;
-        width: 200px;
-      }
- **/
+.inputCheckBox {
+    width: 20px;
+    height: 20px;
+}

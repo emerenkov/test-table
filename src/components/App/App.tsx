@@ -1,12 +1,13 @@
+import React from 'react'
 import styles from './App.module.css';
 import Companies from "../Companies/Companies";
 import Staff from "../Staff/Staff";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className={styles.app}>
-      <header>
-        <h1>Test work from Evgeniy Merenkov</h1>
+      <header className={styles.header}>
+        <h1 className={styles.title}>Test work from Evgeniy Merenkov</h1>
       </header>
       <main className={styles.main}>
         <Companies />
